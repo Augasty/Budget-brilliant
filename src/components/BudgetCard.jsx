@@ -3,7 +3,7 @@ import { currencyFormatter } from '../utils/Utils'
 
 
 
-const BudgetCard = ({ name, amount, max , grey}) => {
+const BudgetCard = ({ name, amount, max , grey, onAddExpenseClick }) => {
     const classNames = []
     if (Number(amount) > Number(max)){
         classNames.push('bg-danger','bg-opacity-10')
@@ -25,7 +25,7 @@ const BudgetCard = ({ name, amount, max , grey}) => {
                 
                 <Stack direction='horizontal' gap='2' className='mt-4'>
                     
-        <Button variant='outline-primary' className='ms-auto'>Add Expense</Button>
+        <Button variant='outline-primary' className='ms-auto' onClick={onAddExpenseClick}>Add Expense</Button>
         <Button variant='outline-secondary'>View Expenses</Button>
                 </Stack>
             </Card.Body>

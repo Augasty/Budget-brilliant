@@ -5,6 +5,7 @@ import useLocal from "../hooks/useLocal"
 
 
 const BudgetContext = React.createContext()
+export const UNCATEGORISED_BUDGET_ID = 'Uncategorised'
 
 const BudgetContextProvider = ({ children }) => {
 
