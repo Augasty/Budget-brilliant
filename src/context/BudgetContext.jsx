@@ -37,19 +37,24 @@ const BudgetContextProvider = ({ children }) => {
   }
 
   function deleteBudget({ id }) {
-    // move the expenses under it to uncategorised
+    setExpenses(prevExp=>{
+      return prevExp.map(exp => {
+        if (exp.budgetId !== id) return exp
+        return {...exp, budgetId:UNCATEGORISED_BUDGET_ID}
+      })
+    })
     setBudgets(prevBudget => prevBudget.filter(b => b.id !== id))
 
   }
 
-  function deleteExpenses({ id }) {
+  function deleteExpense({ id }) {
     setExpenses(prevExp => prevExp.filter(e => e.id !== id))
   }
   return (
     <BudgetContext.Provider value={{
       budgets, expenses, getBudgetExpenses,
       addExpenses, addBudget, deleteBudget,
-      deleteExpenses
+      deleteExpense
     }}>
       {children}
     </BudgetContext.Provider>
