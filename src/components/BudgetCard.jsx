@@ -3,12 +3,12 @@ import { currencyFormatter } from '../utils/Utils'
 
 
 
-const BudgetCard = ({ name, amount, max , grey, onAddExpenseClick, hideButtons, onViewExpenseClick }) => {
+const BudgetCard = ({ name, amount, max, grey, onAddExpenseClick, hideButtons, onViewExpenseClick }) => {
     const classNames = []
-    if (Number(amount) > Number(max)){
-        classNames.push('bg-danger','bg-opacity-10')
-    } 
-    else if (grey){
+    if (Number(amount) > Number(max)) {
+        classNames.push('bg-danger', 'bg-opacity-10')
+    }
+    else if (grey) {
         classNames.push('bg-light')
     }
     return (
@@ -21,12 +21,12 @@ const BudgetCard = ({ name, amount, max , grey, onAddExpenseClick, hideButtons, 
                     </div>
                 </Card.Title>
                 {max && <ProgressBar className='rounded-pill' variant={getProgressBarVariant(amount, max)}
-                    min={0} max={max} now={amount}/>}
-                
+                    min={0} max={max} now={amount} />}
+
                 <Stack direction='horizontal' gap='2' className='mt-4'>
-             {!hideButtons && <>     
-        <Button variant='outline-primary' className='ms-auto' onClick={onAddExpenseClick}>Add Expense</Button>
-        <Button variant='outline-secondary' onClick={onViewExpenseClick}>View Expenses</Button></> }
+                    {!hideButtons && <>
+                        <Button variant='outline-primary' className='ms-auto' onClick={onAddExpenseClick}>Add Expense</Button>
+                        <Button variant='outline-secondary' onClick={onViewExpenseClick}>View Expenses</Button></>}
                 </Stack>
             </Card.Body>
         </Card>

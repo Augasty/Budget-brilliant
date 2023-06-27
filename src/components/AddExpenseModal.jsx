@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { useBudgets,UNCATEGORISED_BUDGET_ID } from '../context/BudgetContext'
+import { useBudgets, UNCATEGORISED_BUDGET_ID } from '../context/BudgetContext'
 
-const AddExpenseModal = ({ show, handleClose , defaultBudgetId}) => {
+const AddExpenseModal = ({ show, handleClose, defaultBudgetId }) => {
   const nameRef = useRef()
   const amountRef = useRef()
   const budgetIdRef = useRef()
@@ -15,7 +15,7 @@ const AddExpenseModal = ({ show, handleClose , defaultBudgetId}) => {
       description: nameRef.current.value,
       amount: parseFloat(amountRef.current.value),
       budgetId: budgetIdRef.current.value
-      
+
     })
     handleClose()
   }
@@ -40,12 +40,13 @@ const AddExpenseModal = ({ show, handleClose , defaultBudgetId}) => {
           <Form.Group className='mb-3' controlId='budgetId'>
             <Form.Label>Budget</Form.Label>
             <Form.Select defaultValue={defaultBudgetId}
-             ref={budgetIdRef}>
-             <option id={UNCATEGORISED_BUDGET_ID}>Uncategorised</option>
-                {budgets.map(bud=>{
-                    console.log(bud)
-                    return (<option key={bud.id} value={bud.id}>{bud.name}</option>)})}
-             </Form.Select>
+              ref={budgetIdRef}>
+              <option id={UNCATEGORISED_BUDGET_ID}>Uncategorised</option>
+              {budgets.map(bud => {
+                console.log(bud)
+                return (<option key={bud.id} value={bud.id}>{bud.name}</option>)
+              })}
+            </Form.Select>
           </Form.Group>
           <div className='d-flex justify-content-end'>
             <Button variant='primary' type='submit'>Add</Button>

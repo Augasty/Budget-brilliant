@@ -1,15 +1,13 @@
 import { Modal, Button, Stack } from "react-bootstrap"
-// import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetsContext"
-// import { currencyFormatter } from "../utils"
 import { UNCATEGORISED_BUDGET_ID, useBudgets } from "../context/BudgetContext"
 import { currencyFormatter } from "../utils/Utils"
 
 export default function ViewExpensesModal({ budgetId, handleClose }) {
-  
-  const { getBudgetExpenses, budgets, deleteBudget, deleteExpense  } = useBudgets()
+
+  const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } = useBudgets()
 
   const expenses = getBudgetExpenses(budgetId)
-  const budget = UNCATEGORISED_BUDGET_ID === budgetId ? { name: "Uncategorized", id: UNCATEGORISED_BUDGET_ID }: budgets.find(b => b.id === budgetId)
+  const budget = UNCATEGORISED_BUDGET_ID === budgetId ? { name: "Uncategorized", id: UNCATEGORISED_BUDGET_ID } : budgets.find(b => b.id === budgetId)
 
   return (
     <Modal show={budgetId != null} onHide={handleClose}>
