@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useLocal = (key, defaultValue) => {
     const [value, setValue] = useState(() => {

@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react"
+import  {createContext, useContext} from "react"
 import { v4 as uniqueIdFunction } from "uuid"
 import useLocal from "../hooks/useLocal"
 
 
 
-const BudgetContext = React.createContext()
+const BudgetContext = createContext()
 export const UNCATEGORISED_BUDGET_ID = 'Uncategorised'
 
 const BudgetContextProvider = ({ children }) => {
@@ -51,6 +51,7 @@ const BudgetContextProvider = ({ children }) => {
     setExpenses(prevExp => prevExp.filter(e => e.id !== id))
   }
   return (
+    // context provider
     <BudgetContext.Provider value={{
       budgets, expenses, getBudgetExpenses,
       addExpenses, addBudget, deleteBudget,
